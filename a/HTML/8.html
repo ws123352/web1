@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用CSS3制作文字、图片倒影_风语博客</title>
+<meta name="keywords" content="使用,CSS3,制作,文字,图片,倒影,CSS3,制作,文字" />
+<meta name="description" content="CSS3制作文字、图片倒影需要涉及到使用CSS3.0新属性之box-reflect。box-reflect属性目前仅在Chrome、Safari和Opera浏览器下支持，但这并不影响我们来学习这个属性的应用。 box-reflect语法： box-reflect：none | direction offset? mask-box-image? directi" />
+<link rel="shortcut icon" href="../../skin/images/bk.png">
+<link href="../../skin/css/styles.css" rel="stylesheet">
+<link href="../../skin/css/view.css" rel="stylesheet">
+<!-- 返回顶部调用 begin -->
+<link href="http://demo706.dede58.com/skin/css/lrtk.css" rel="stylesheet" />
+<script type="text/javascript" src="../../skin/js/jquery.js"></script>
+<script type="text/javascript" src="../../skin/js/js.js"></script>
+<!-- 返回顶部调用 end-->
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+  <nav id="nav">
+    <ul>
+      	<li><a href='../../index.html'>首页</a></li>
+      	
+      	<li><a href='../../a/jishu/list_1_1.html'>技术探讨</a></li>
+      	<li><a href='../../a/HTML/list_2_1.html' id='nav_current'>HTML5 / CSS3</a></li>
+      	<li><a href='../../a/msh/list_3_1.html'>慢生活</a></li>
+      	
+      	<li><a href='../../a/sysy/list_4_1.html'>碎言碎语</a></li>
+      	
+    </ul>
+    <script src="../../skin/js/silder.js"></script><!--获取当前页导航 高亮显示标题--> 
+  </nav>
+</header>
+
+
+<!--header end-->
+<div id="mainbody" >
+  <div class="blogs">
+    <div id="index_view">
+    <h2 style="font-family:宋体; font-size:12px;">您当前的位置：<a href='../../index.html'>风语博客</a> > <a href='list_2_1.html'>HTML5 / CSS3</a> > </h2>
+      <h2 class="t_nav"></h2>
+      <h1 class="c_titile">使用CSS3制作文字、图片倒影</h1>
+      <p class="box">发布时间：2019-12-9 00:13<span>编辑：风语</span>阅读（<script src="../../plus/count.php?view=yes&aid=8&mid=1"type='text/javascript' language="javascript"></script>）</p>
+      <ul>
+        <p><img src="../../uploads/allimg/150529/00135Q956-0-lp.jpg"></p>
+        <p> <p style="margin: 0px 0px 5px; padding: 0px;">
+	CSS3制作文字、图片倒影需要涉及到使用CSS3.0新属性之box-reflect。box-reflect属性目前仅在Chrome、Safari和Opera浏览器下支持，但这并不影响我们来学习这个属性的应用。</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	box-reflect语法：</p>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		box-reflect：none | &lt;direction&gt; &lt;offset&gt;? &lt;mask-box-image&gt;?</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;direction&gt; = above | below | left | right</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;offset&gt; = &lt;length&gt; | &lt;percentage&gt;</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;mask-box-image&gt; = none | &lt;url&gt; | &lt;linear-gradient&gt; | &lt;radial-gradient&gt; | &lt;repeating-linear-gradient&gt; | &lt;repeating-radial-gradient&gt;</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; 默认值：none</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; 适用于：所有元素</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; 继承性：无&nbsp;</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	由于此属性并不是W3C标准属性，在具体使用之时，还是需要添加浏览器的私有属性，根据浏览器的兼容性，使用box-reflect时需要添加-webkit和前缀：</p>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		-webkit-box-reflect：none | &lt;direction&gt; &lt;offset&gt;? &lt;mask-box-image&gt;?</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		box-reflect：none | &lt;direction&gt; &lt;offset&gt;? &lt;mask-box-image&gt;?</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	取值：</p>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; none：无倒影</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;direction&gt;　Demo: 简单图片倒影 See with Webkit</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; above：指定倒影在对象的上边</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; below：指定倒影在对象的下边</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; left：指定倒影在对象的左边</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; right：指定倒影在对象的右边</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;offset&gt;　Demo: 图片与倒影间隔 See with Webkit</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;length&gt;：用长度值来定义倒影与对象之间的间隔。可以为负值</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;percentage&gt;：用百分比来定义倒影与对象之间的间隔。可以为负值</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;mask-box-image&gt;　Demo: 更真实的图片倒影 文字倒影与渐变 See with Webkit</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; none：无遮罩图像</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;url&gt;：使用绝对或相对地址指定遮罩图像。</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;linear-gradient&gt;：使用线性渐变创建遮罩图像。</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;radial-gradient&gt;：使用径向(放射性)渐变创建遮罩图像。</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;repeating-linear-gradient&gt;：使用重复的线性渐变创建背遮罩像。</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&nbsp; &nbsp; &lt;repeating-radial-gradient&gt;：使用重复的径向(放射性)渐变创建遮罩图像。</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	<strong style="margin: 0px; padding: 0px;">图片倒影：</strong></p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	假设我们需要给一张图片做倒影效果，其结构其实非常简单：</p>
+<div class="box-reflect" style="margin: 0px; padding: 0px;">
+	<img alt="使用CSS3制作图片倒影" height="200" src="../../uploads/allimg/150529/00135Q956-0.jpg" style="margin: 0px; padding: 0px; border: 0px; display: block;" width="245" /></div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	根据前面的语法介绍，要让倒影在对象的右侧，我们只需要给box-reflect属性取值为right即可：</p>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		.box-reflect img {</p>
+	<ol class="properties monospace" style="margin: 0px; padding-top: 2px; padding-right: 4px; padding-left: 0px; box-sizing: border-box; font-family: Consolas, 'Lucida Console', monospace; list-style: none; clear: both; white-space: nowrap;">
+		<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px !important; padding: 0px 0px 0px 38px; box-sizing: border-box; white-space: normal; text-overflow: ellipsis; overflow: hidden; cursor: auto;" title="">
+			<span class="webkit-css-property" style="margin: 0px 0px 0px -38px; padding: 0px; box-sizing: border-box; color: rgb(200, 0, 0);" title="-webkit-box-reflect: right;">-webkit-box-reflect</span>:&nbsp;<span class="value" style="margin: 0px; padding: 0px; box-sizing: border-box;">right</span>;</li>
+	</ol>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		<font face="Consolas, Lucida Console, monospace" style="margin: 0px; padding: 0px;">box-reflect:right;</font></p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		}</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	效果如图：</p>
+<div style="margin: 0px; padding: 0px;">
+	<img alt="使用CSS3制作图片倒影" height="200" src="../../uploads/allimg/150529/00135Q956-0.jpg" style="margin: 0px; padding: 0px; border: 0px; display: block; -webkit-box-reflect: right 0px;" width="245" /></div>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&lt;img src=&quot;图片.jpg&quot; alt=&quot;使用CSS3制作图片倒影&quot; style=&quot;-webkit-box-reflect: right;box-reflect:right&quot;&gt;</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	<strong style="margin: 0px; padding: 0px;">文字倒影：</strong></p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	要让倒影在对象的下方，我们只需要给box-reflect属性取值为below即可：</p>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		-webkit-box-reflect: below;</p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		box-reflect: below;</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px; -webkit-box-reflect: below 0px;">
+	<span style="margin: 0px; padding: 0px; color: rgb(51, 153, 102);"><span style="margin: 0px; padding: 0px;"><strong style="margin: 0px; padding: 0px;">记录&middot;回忆</strong></span></span></p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	特别提示：在此示例中，我们没有为倒影提供了一个空白区，所以下面这一行就占据了位置，要解决这个问题，就得提供一个空白区域出来，使用margin：margin:20px 0;</p>
+<p style="margin: 20px 0px; padding: 0px; -webkit-box-reflect: below 0px;">
+	<strong style="margin: 0px; padding: 0px; color: rgb(51, 153, 102);">记录&middot;回忆</strong></p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	<strong style="margin: 0px; padding: 0px;">倒影与对象之间的间距：</strong></p>
+<div style="margin: 0px; padding: 0px;">
+	了解完生成倒影的方向之后，我们一起来看第二个属性值&lt;offset&gt;。有时候大家可能会有这样的需求，我虽然将倒影生成出来了，但我想让生成的倒影与对象(原图)之间有一定的间距。那么这个时候我们就需要使用到box-reflect属性中的第二个属性值&lt;offset&gt;。</div>
+<div style="margin: 0px; padding: 0px;">
+	随便拿一个示例来说做演示，假设对象生成的倒影在底部，而且需要让生成的倒影离自身有一个20px的间距，此时我们只需要这样做：</div>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		.box-reflect img {</p>
+	<ol class="properties monospace" style="margin: 0px; padding-top: 2px; padding-right: 4px; padding-left: 0px; box-sizing: border-box; font-family: Consolas, 'Lucida Console', monospace; list-style: none; clear: both; white-space: nowrap;">
+		<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px !important; padding: 0px 0px 0px 38px; box-sizing: border-box; white-space: normal; text-overflow: ellipsis; overflow: hidden; cursor: auto;" title="">
+			<span class="webkit-css-property" style="margin: 0px 0px 0px -38px; padding: 0px; box-sizing: border-box; color: rgb(200, 0, 0);" title="-webkit-box-reflect: right;">-webkit-box-reflect</span>:&nbsp;<span class="value" style="margin: 0px; padding: 0px; box-sizing: border-box;">right 20px</span>;</li>
+	</ol>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		<font face="Consolas, Lucida Console, monospace" style="margin: 0px; padding: 0px;">box-reflect:right 20px;</font></p>
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		}</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	效果如图：</p>
+<div style="margin: 0px; padding: 0px;">
+	<img alt="使用CSS3制作图片倒影" height="200" src="../../uploads/allimg/150529/00135Q956-0.jpg" style="margin: 0px; padding: 0px; border: 0px; display: block; -webkit-box-reflect: right 20px;" width="245" /><br />
+	&nbsp;</div>
+<div class="shili" style="margin: 0px; padding: 10px; background-color: rgb(245, 245, 245); border: 1px dotted rgb(119, 136, 85); word-wrap: break-word;">
+	<p style="margin: 0px 0px 5px; padding: 0px;">
+		&lt;img src=&quot;图片.jpg&quot; alt=&quot;使用CSS3制作图片倒影&quot; style=&quot;-webkit-box-reflect: right 20px;box-reflect:right 20px&quot;&gt;</p>
+</div>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	<br />
+	<strong style="margin: 0px; padding: 0px;">给倒影添加遮罩效果:</strong></p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	左右倒影：</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-box-reflect: left 1px -webkit-gradient(linear, 0% 100%,100% 100%,from(rgba(255,255,255,0)), to(white));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-box-reflect: right 1px -webkit-gradient(linear, 0% 100%,100% 100%, from(rgba(255,255,255,0)), to(white));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	上下倒影：</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-box-reflect: above 1px -webkit-gradient(linear, 0% 100%,100% 100%, from(rgba(255,255,255,0)), to(white));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp;-webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 100%,100% 100%, from(rgba(255,255,255,0)), to(white));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	字体倒影：</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.2)));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	文字渐变+倒影：</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.2)));</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; background: -webkit-linear-gradient(top, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);</p>
+<p style="margin: 0px 0px 5px; padding: 0px;">
+	&nbsp; &nbsp; -webkit-background-clip: text;-webkit-text-fill-color: transparent;</p>
+<ul class="infos" style="margin: 20px 30px 20px 0px; padding-right: 0px; padding-left: 0px; list-style: none; overflow: hidden; line-height: 28px; font-size: 14px; text-indent: 2em; color: rgb(102, 102, 102); font-family: 宋体, Arial, Helvetica, sans-serif;">
+</ul>
+ </p>
+      </ul>
+      <div class="share"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"> <span class="bds_more">分享到：</span> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <a class="shareCount"></a> </div>
+        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585" ></script> 
+        <script type="text/javascript" id="bdshell_js"></script> 
+        <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> 
+        <!-- Baidu Button END --> 
+      </div>
+      <div class="otherlink">
+        <h2></h2>
+        <ul style="padding: 0 ;">
+          <li>上一篇：没有了 </li>
+          <li style="float:right;">下一篇：<a href='../../a/HTML/9.html'>HTML5技术将推动移动浏览器变革</a> </li>
+        </ul>
+        <ul>
+		<div class='_DEDECY' style=''>        
+        </ul>
+        <ul>
+        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+    </table>
+
+        </ul>
+      </div>
+    </div>
+    <!--bloglist end-->
+    
+    
+    
+  </div>
+  <!--blogs end--> 
+</div>
+<!--mainbody end-->
+
+<footer>
+  <div class="footer-mid"></div>
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2019 风语工作室</p>
+  </div>
+</footer>
+<!-- jQuery仿腾讯回顶部和建议 代码开始 -->
+<div id="tbox"><a id="gotop" href="javascript:void(0)"></a> </div>
+<!-- 代码结束 -->
+
+
+</body>
+</html>

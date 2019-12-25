@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS中的作用域、闭包和回收机制_风语博客</title>
+<link href="../../skin/css/styles.css" rel="stylesheet">
+<link href="../../skin/css/view.css" rel="stylesheet">
+<link rel="shortcut icon" href="../../skin/images/bk.png">
+<!-- 返回顶部调用 begin -->
+<link href="../../skin/css/lrtk.css" rel="stylesheet" />
+<script type="text/javascript" src="../../skin/js/jquery.js"></script>
+<script type="text/javascript" src="../../skin/js/js.js"></script>
+<!-- 返回顶部调用 end-->
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+  <nav id="nav">
+    <ul>
+      	<li><a href='../../index.html'>首页</a></li>
+      	<li><a href='list_1_1.html' id='nav_current'>技术探讨</a></li>
+      	<li><a href='../HTML/list_2_1.html'>HTML5 / CSS3</a></li>
+      	
+      	<li><a href='../msh/list_3_1.html'>慢生活</a></li>
+      	
+      	<li><a href='../sysy/list_4_1.html'>碎言碎语</a></li>
+      	
+    </ul>
+    <script src="../../skin/js/silder.js"></script><!--获取当前页导航 高亮显示标题--> 
+  </nav>
+</header>
+
+
+<!--header end-->
+<div id="mainbody">
+  <div class="blogs">
+    <div id="index_view">
+    <h2 style="font-family:宋体; font-size:12px;">您当前的位置：<a href='../../index.html'>风语博客</a> > <a href='list_1_1.html'>技术探讨</a> > </h2>
+      <h2 class="t_nav"></h2>
+      <h1 class="c_titile">JS中的作用域、闭包和回收机制</h1>
+      <p class="box">发布时间：2019-12-8 23:26<span>编辑：风语</span>阅读（<script src="../../plus/count.php?view=yes&aid=3&mid=1"type='text/javascript' language="javascript"></script>）</p>
+      <ul>
+        <p><img src="../../uploads/allimg/150529/js.jpg"></p>
+        <p> <h1>
+            1、JS的解析顺序
+        </h1>
+<p>
+    其实说JS是自上而下解析是正确的，但是是分为两步：</p>
+<p>
+    1.先自上而下解析声明，包括用var、function声明的变量和函数，以及函数的参数的声明（隐式声明）。这里要注意解析声明并不会赋值，比如你写了var a = 1;在这一步只会解析var a。这一步被称为预解析，在作用域内声明的变量会被提升到作用域的顶部，且对其赋值undefined，这个过程称之为变量提升；而在作用域内的函数定义会被提升到作用域的顶部，其值为函数本身,这个过程称之为函数提升。</p>
+<p>
+	2.再自上而下执行，包括赋值、判断、循环、函数调用等等。这里要注意通过function声明的部分是直接跳过的，因为这部分属于声明，而不是执行代码，只有当这个函数被调用的时候，函数内部的代码才会被解析，而事件类函数是要事件触发的时候才会执行。</p>
+<h1>
+    2、JS的作用域
+</h1>
+<p>
+    在ES5中作用域分为两种：</p>
+<p>
+    全局作用域</p>
+<p>
+    局部作用域</p>
+<p>直接定义在script标签下的变量和函数都在同一个作用域——全局作用域，在全局作用域里定义的变量和函数，分别被称为全局变量和全局函数，它们在函数作用域里也是能够被访问的。</p>
+<p>在某个函数或者对象的内部定义的变量和函数所在的作用域为局部作用域，这部分变量和函数只在函数或对象的内部有效，将不能在函数或对象外直接访问（只能间接访问）。在ES6中还会有块级作用域，即任何用{ }包含起来的代码块都为一个块级作用域，在本文中只讲ES5中的全局和局部作用域。</p>
+<p>除了父级的this和arguments这两个特殊的对象，局部作用域可以访问父级和全局作用域里的变量和函数；父级和全局不能直接访问局部的变量和函数。当局部声明的变量（或函数）与父级或者全局的变量（或函数）名字相同时，局部优先使用自己内部声明的。</p>
+<h1>3、JS中的闭包</h1>
+<p>在上一节的特殊案例中，函数b中用到了父级作用域的一个变量a，然后我们将这个函数b赋给了c，当c被调用的时候，变量a的值会保存c此次对其执行的改变，故当我们第二次调用c的时候，a的值会在11的基础上再加1，如果我们重复调用c，我们就能看到a的值每次都在增加。</p>
+<p>这里需要注意的是，同一个函数定义，每被调用执行一次都是在产生一个新的作用域，比如上例中的fn，第一次调用的时候把b赋值给了c，然后在倒数第二行的时候又被调用了一次，但此次产生的作用域和c=fn()()时产生的作用域是不同的两个，所以倒数第二行的fn()()不会影响到c()中a的值。</p>
+<h1>4、JS的回收机制</h1>
+<p>任何一门编程语言都有自己的回收机制，又称为垃圾回收机制，试想如果一个语言没有自己的回收机制会是什么样？那我们的程序将会因为没有及时回收无用的变量和函数而占据越来越多的内存，会使得我们的程序越来越慢。好比我们的城市，如果没有垃圾处理机制，大家想想会是什么样？所以回收机制对于一门编程语言来说至关重要。</p>
+<p>JS中规定变量所在的作用域的生命周期决定了变量的生命周期。故而全局变量是不会被回收的，除非您关闭网页，结束window；而函数内部的变量，则在函数被调用时生效，函数执行结束时会被回收，这就是为什么我们在父级不能直接访问子级变量的原因，而闭包又会有所不同。</p>
+<p>通俗地讲，闭包实际上就是保护变量的一个封闭空间，保护一个即将被释放的变量不被释放，以便下次再用到它。所以它和全局变量一样都比较耗内存，一般我们会尽量避免使用它。</p>
+<ul class="infos" style="margin: 20px 30px 20px 0px; padding-right: 0px; padding-left: 0px; list-style: none; overflow: hidden; line-height: 28px; font-size: 14px; text-indent: 2em; color: rgb(102, 102, 102); font-family: 宋体, Arial, Helvetica, sans-serif;">
+</ul>
+ </p>
+      </ul>
+      <div class="share"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"> <span class="bds_more">分享到：</span> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <a class="shareCount"></a> </div>
+        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585" ></script> 
+        <script type="text/javascript" id="bdshell_js"></script> 
+        <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> 
+        <!-- Baidu Button END --> 
+      </div>
+      <div class="otherlink">
+        <h2></h2>
+        <ul style="padding: 0 ;">
+          <li>上一篇：<a href='../a/jishu/1.html'>响应式web网站设计制作方法</a> </li>
+          <li style="float:right;">下一篇：没有了 </li>
+        </ul>
+        <ul>
+		<div class='_DEDECY' style=''>        
+        </ul>
+        <ul>
+        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+<tr>
+    <td width='50%'>
+    </td>
+    <td width='50%'>
+    </td>
+    </tr>
+    </table>
+
+        </ul>
+      </div>
+    </div>
+    <!--bloglist end-->
+  </div>
+  <!--blogs end--> 
+</div>
+<!--mainbody end-->
+
+<footer>
+  <div class="footer-mid"></div>
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2019 风语工作室</p>
+  </div>
+</footer>
+<!-- jQuery仿腾讯回顶部和建议 代码开始 -->
+<div id="tbox"><a id="gotop" href="javascript:void(0)"></a> </div>
+<!-- 代码结束 -->
+
+
+</body>
+</html>
